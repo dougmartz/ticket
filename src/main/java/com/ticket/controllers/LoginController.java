@@ -10,5 +10,5 @@ package com.ticket.controllers;
  * @author admin
  */
 public class LoginController {
-    
+    //Login controller
 }
