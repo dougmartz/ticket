@@ -10,5 +10,20 @@ package com.ticket.config;
  * @author admin
  */
 public class Configs {
+    private static final String user="root"; 
+    private static final String password ="";
+    private static final String dbName ="ticket";
+
+    public static String getUser() {
+        return user;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
+
+    public static String getDbName() {
+        return dbName;
+    }
     
 }
