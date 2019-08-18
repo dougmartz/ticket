@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Douglas
+ * @author admin
  */
 public class UserDAO {
     Connection cn;
