@@ -5,6 +5,7 @@
  */
 package com.ticket.database;
 
+import com.ticket.config.Configs;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
@@ -19,7 +20,8 @@ public class Connect {
     private Connection connect;
     private BasicDataSource basicData;
     public DataSource dataSource;
-    private String user, password, dbName, driver, timeZone, message;
+    private Configs configs;
+    private String driver, timeZone, message;
     
     public Connect() {
         initSettings();
@@ -29,9 +31,6 @@ public class Connect {
     }
     
     private void initSettings(){
-        user = "root";
-        password = "";
-        dbName = "ticket";
         driver = "com.mysql.jdbc.Driver";
         // Specifying the serverTimezone to making work with 5.1.33 of MySQL JDBC driver.
         timeZone= "?useUnicode=true"
@@ -42,13 +41,14 @@ public class Connect {
     
     private void initElements(){
         basicData = new BasicDataSource();
+        configs = new Configs();
     }
     
     private void setupElements(){
         basicData.setDriverClassName(driver);
-        basicData.setUsername(user);
-        basicData.setPassword(password);
-        basicData.setUrl("jdbc:mysql://localhost/"+dbName+timeZone);
+        basicData.setUsername(configs.getUser());
+        basicData.setPassword(configs.getPassword());
+        basicData.setUrl("jdbc:mysql://localhost/"+configs.getDbName()+timeZone);
         basicData.setMaxActive(100);
         basicData.setMinIdle(0);
         basicData.setMaxIdle(0);
