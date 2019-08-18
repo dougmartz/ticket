@@ -7,7 +7,7 @@ package com.ticket.models;
 
 /**
  *
- * @author Douglas
+ * @author admin
  */
 public class UserVO {
     Long id;
