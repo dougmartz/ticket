@@ -6,6 +6,8 @@
 package com.ticket.views;
 
 import com.ticket.models.MenuModel;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Douglas
  */
 public class Menu extends JFrame{
-    private JPanel menuPanel;
+    private JPanel menuPanel, buttonPanel;
     private JTable jtable;
     private JScrollPane scrollPane;
     private JButton btnSave, 
@@ -28,6 +30,7 @@ public class Menu extends JFrame{
     private DefaultTableModel model;
     private MenuModel menuModel;
     private String [] columns;
+    private Color background;
     public Menu() {
         initSettings();
         initElements();
@@ -42,7 +45,8 @@ public class Menu extends JFrame{
     }
     
     private void initElements(){
-        menuPanel = new JPanel();
+        menuPanel = new JPanel(new BorderLayout());
+        buttonPanel = new JPanel();
         jtable = new JTable();
         scrollPane = new JScrollPane(jtable);
         model = new DefaultTableModel(null, columns);
@@ -51,10 +55,12 @@ public class Menu extends JFrame{
         btnEdit = new JButton("Edit");
         btnAdd = new JButton("Add");
         menuModel = new MenuModel(this);
+        background = new Color(0,100,153);
     }
     
     private void setupElements(){
-        menuPanel.setBackground(new java.awt.Color(0,102,153));
+        menuPanel.setBackground(background);
+        buttonPanel.setBackground(background);
         jtable.setModel(model);
         
         btnSave.addActionListener(menuModel.getMenuController());
@@ -62,11 +68,13 @@ public class Menu extends JFrame{
         btnEdit.addActionListener(menuModel.getMenuController());
         btnAdd.addActionListener(menuModel.getMenuController());
 
-        menuPanel.add(scrollPane);
-        menuPanel.add(btnSave);
-        menuPanel.add(btnDelete);
-        menuPanel.add(btnEdit);
-        menuPanel.add(btnAdd);
+        buttonPanel.add(btnSave);
+        buttonPanel.add(btnDelete);
+        buttonPanel.add(btnEdit);
+        buttonPanel.add(btnAdd);
+        
+        menuPanel.add(scrollPane, BorderLayout.CENTER);
+        menuPanel.add(buttonPanel, BorderLayout.SOUTH);
         this.getContentPane().add(menuPanel);
     }
     
