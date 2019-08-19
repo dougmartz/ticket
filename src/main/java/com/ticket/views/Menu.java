@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Douglas
+ * @author admin
  */
 public class Menu extends JFrame{
     private JPanel menuPanel;
