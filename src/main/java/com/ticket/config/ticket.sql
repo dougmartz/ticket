@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-08-2019 a las 19:41:34
+-- Tiempo de generación: 19-08-2019 a las 00:07:02
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -21,6 +21,35 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `ticket`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tickets`
+--
+
+CREATE TABLE `tickets` (
+  `id` bigint(20) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `venue` varchar(20) NOT NULL,
+  `date` date NOT NULL,
+  `price` double NOT NULL,
+  `number` int(11) NOT NULL,
+  `remarks` varchar(25) NOT NULL,
+  `customer` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tickets`
+--
+
+INSERT INTO `tickets` (`id`, `type`, `name`, `venue`, `date`, `price`, `number`, `remarks`, `customer`, `phone`) VALUES
+(1, 'Concert', 'Metalica', 'San Francisco', '2019-08-12', 120, 1, 'S/N', 'Douglas', '+58 0424-1234567'),
+(2, 'Movie', 'Halloween', 'Mexico DF', '2019-08-30', 5, 2, 'S/N', 'Mary', '+27 0534589631'),
+(5, 'Movie', 'Avengers', 'LA', '2019-02-02', 5, 3, 'S/N', 'Tom', '+255446456'),
+(6, 'Concert', 'Alice in Chains', 'Seattle', '2019-12-02', 6, 1, 'S/N', 'Layne', '+5836232564');
 
 -- --------------------------------------------------------
 
@@ -46,6 +75,12 @@ INSERT INTO `users` (`id`, `username`, `password`) VALUES
 --
 
 --
+-- Indices de la tabla `tickets`
+--
+ALTER TABLE `tickets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -55,6 +90,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
+--
+-- AUTO_INCREMENT de la tabla `tickets`
+--
+ALTER TABLE `tickets`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
