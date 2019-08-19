@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Douglas
+ * @author admin
  */
 public class MenuModel {
     private Menu menu;
@@ -29,7 +29,7 @@ public class MenuModel {
         this.menu = menu;
         menuController = new MenuController(this);
         ticketDAO = new TicketDAO();
-        tickets = ticketDAO.read(); // Add the db values into the aarylist.
+        tickets = ticketDAO.read(); // Add the db values into the arraylist.
         this.addRows();
     }
 
@@ -144,7 +144,7 @@ public class MenuModel {
         String[] newRow = new String [10]; // Create a new array to host the data;
         for (int i = 0; i < tickets.size(); i++) {
             //Getting the values from the list
-            String.valueOf(tickets.get(i).getId());
+            newRow[0] = String.valueOf(tickets.get(i).getId());
             newRow[1] = tickets.get(i).getType();
             newRow[2] = tickets.get(i).getName();
             newRow[3] = tickets.get(i).getVenue();
